@@ -11,6 +11,10 @@ export default function Login({ onIdSubmit }) {
         onIdSubmit(idRef.current.value)
     }
 
+    function createNewId() {
+        onIdSubmit(uuidV4())
+    }
+
     return (
         <Container className="align-items-center d-flex" style={{ height: '100vh' }}>
             <Form className="w-100" onSubmit={handleSubmit}>
@@ -19,7 +23,7 @@ export default function Login({ onIdSubmit }) {
                     <Form.Control type="text" ref={idRef} required></Form.Control>
                 </Form.Group>
                 <Button type="submit" className="me-2">Login</Button>
-                <Button variant="secondary">Create a New ID</Button>
+                <Button onClick={createNewId} variant="secondary">Create a New ID</Button>
             </Form>
         </Container>
     );
